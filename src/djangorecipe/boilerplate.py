@@ -9,7 +9,21 @@ sys.path[0:0] = [
 %(initialization)s
 import %(module_name)s
 
-application = %(module_name)s.%(attrs)s(%(arguments)s)
+NEWRELIC = False
+
+try:
+    with open("/etc/wsgiapps/newrelic.ini") as f: pass
+    NEWRELIC=True
+    import newrelic.agent
+    newrelic.agent.initialize("/etc/wsgiapps/newrelic.ini", 'production')
+    %(initialization)s
+    import %(module_name)s
+    application = %(module_name)s.%(attrs)s(%(arguments)s)
+    application = newrelic.agent.wsgi_application()(application)
+except IOError:
+    %(initialization)s
+    import %(module_name)s
+    application = %(module_name)s.%(attrs)s(%(arguments)s)
 """,
 }
 
