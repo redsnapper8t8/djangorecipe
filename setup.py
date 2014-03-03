@@ -2,11 +2,7 @@ import os
 
 from setuptools import setup, find_packages
 
-<<<<<<< Updated upstream
-version = '1.8.dev0'
-=======
-version = '1.7.dev2'
->>>>>>> Stashed changes
+version = '1.7.1'
 
 
 def read_file(name):
