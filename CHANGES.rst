@@ -1,11 +1,16 @@
 Changes
 =======
 
-1.7 (unreleased)
+1.8 (unreleased)
 ----------------
 
 - Nothing changed yet.
 
+
+1.7 (2013-12-11)
+----------------
+
+- Add option to change the wsgi script name. Thanks hedleyroos (Fixes pull #74)  
 
 1.6 (2013-10-28)
 ----------------
@@ -18,7 +23,7 @@ Changes
 - Moved to buildout 2 support only.
 
 - Removed generation of fastcgi script. You can run it easily as ``bin/django
-  runfcgi`` and it will be deprecated in Django 1.7 anway.
+  runfcgi`` and it will be deprecated in Django 1.7 anyway.
 
 
 1.5 (2013-01-25)
